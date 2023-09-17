@@ -79,7 +79,7 @@ app.post('/login',async(req,res)=>{
        const check= bcrypt.compareSync(password,user[0].password)
        if(check)
        {
-        console.log("Login Successful !")
+        res.send("Coming Soon!")
        }
     }
 })
