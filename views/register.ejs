@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="/styles/register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <form action="/register" method="post">
+        <div class="heading">
+            <h3>Free Register</h3>
+        <!-- <i class="fa fa-times" style="font-size:36px; font-weight:100; margin:4% 4% auto auto"aria-hidden="true" ></i> -->
+
+        </div>
+        
+
+        <div class="line"></div>
+
+        <div class="fullname">
+            <label id="fullname">Full Name*:</label><br>
+            <input type="text" id="fullname" name="fullname" placeholder="Enter Full Name"
+                required>
+        </div>
+
+
+        <div class="username">
+            <label id="username">Username*:</label><br>
+            <input type="text/email" id="username" name="username" placeholder="Username or Email (Case sensitive)"
+                required>
+        </div>
+
+        <div class="password">
+            <label id="password" for="username">Password*:</label><br>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+        </div>
+
+        <div class="confirm">
+            <label id="confirm" for="confirm">Confirm Password*:</label><br>
+            <input type="password" id="confirm" name="confirm" placeholder="Confirm Password" required>
+        </div>
+
+        <div class="email">
+            <label id="email" for="email">Email*:</label><br>
+            <input type="email" id="email" name="email" placeholder="Enter Email Address" required>
+        </div>
+
+        <div class="number">
+            <label id="number" for="number">Contact Number:</label><br>
+            <input type="number" id="number" name="number" placeholder="Enter Contact Number">
+        </div>
+
+        
+        <br>
+
+        <div class="btns">
+
+            <button id="btn1">  <a id="cancel" href="/cancel">Cancel</a>  </button>
+            <button id="btn2" type="submit">Register </button>
+        </div>
+
+            
+
+        
+            
+        
+
+    </form>
+
+</body>
+
+</html>
