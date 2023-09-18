@@ -102,7 +102,7 @@
 
     <div class="add-stock-section">
         <h2>Add Stock</h2>
-        <form class="add-stock-form">
+        <form class="add-stock-form" action="/add" method="post">
             <label for="scrip">SCRIP:</label>
             <input type="text" id="scrip" name="scrip" placeholder="Enter your Company Symbol" required>
 
@@ -111,6 +111,9 @@
 
             <label for="purchasePrice">Purchase Price:</label>
             <input type="number" id="purchasePrice" name="purchasePrice" placeholder="Enter Purchase Price" required>
+
+            <label for="totalInvestment">Total Investment:</label>
+            <input type="number" id="totalInvestment" name="totalInvestment" placeholder="EntertotalInvestment " required>
 
             <button type="submit">Add</button>
             <button type="reset" id="clearForm" onclick="clear()">Clear</button>

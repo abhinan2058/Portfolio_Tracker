@@ -8,6 +8,7 @@ app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 const {users} =require("./model/index.js")
+const {stocks} = require("./model/stock.js")
 
 
 app.get('/',(req,res)=>{
@@ -85,6 +86,29 @@ app.post('/login',async(req,res)=>{
         res.send('Invalid Login Credentials')
        }
     }
+})
+
+
+app.post('/add',async(req,res)=>{
+    const scrip= req.body.scrip
+    const quantity = req.body.quantity
+    const purchasePrice = req.body.purchasePrice
+    const totalInvestment= req.body.totalInvestment
+
+    //  await stocks.create({
+    //     scrip:scrip,
+    //     quantity:quantity,
+    //     purchasePrice:purchasePrice,
+    //     totalInvestment:totalInvestment
+    // })
+
+    const data = await stocks.create({
+        scrip:scrip,    
+        quantity:quantity,
+        purchasePrice: purchasePrice,
+        totalInvestment:totalInvestment
+    })
+    console.log(data)
 })
 
 
