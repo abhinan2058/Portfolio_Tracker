@@ -79,7 +79,10 @@ app.post('/login',async(req,res)=>{
        const check= bcrypt.compareSync(password,user[0].password)
        if(check)
        {
-        res.send("Coming Soon!")
+        res.render('home.ejs')
+       }
+       else{
+        res.send('Invalid Login Credentials')
        }
     }
 })
