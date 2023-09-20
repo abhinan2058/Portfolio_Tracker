@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/update.css">
+    <title>Stock Portfolio Tracker</title>
+</head>
+<body>
+    <div class="navbar">
+        <span class="navbar-text">Stock Portfolio Tracker</span>
+    </div>
+    
+    <div class="update-stock-section">
+        <h2>Update Stock</h2>
+        <form class="update-stock-form" action="/update/<%= stocks[0].id %>" method="post">
+            <label for="scrip">SCRIP:</label>
+            <input type="text" id="scrip" name="scrip" placeholder="Enter your Company Symbol"  value="<%= stocks[0].scrip %>" required>
+    
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" placeholder="Enter Stock Quantity" value="<%= stocks[0].quantity %>" required>
+    
+            <label for="purchasePrice">Purchase Price:</label>
+            <input type="number" id="purchasePrice" name="purchasePrice" placeholder="Enter Purchase Price" value="<%= stocks[0].purchasePrice %>" required>
+    
+    
+    
+            <button type="submit">Update</button>
+            <button type="reset" id="clearForm" onclick="clear()">Clear</button>
+        </form>
+    </div>
+</body>
+</html>

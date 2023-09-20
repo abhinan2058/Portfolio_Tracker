@@ -7,8 +7,8 @@ app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-const {users} =require("./model/index.js")
-const {stocks} = require("./model/stock.js")
+const {users, stocks} =require("./model/index.js")
+// const {stocks} = require("./model/index.js")
 
 
 app.get('/',(req,res)=>{
@@ -59,8 +59,6 @@ app.post('/register',async (req,res)=>{
     })
 }
     res.redirect('/')
-    // res.send("registered success")
-    // console.log(req.body)
 
     
 })
@@ -80,7 +78,9 @@ app.post('/login',async(req,res)=>{
        const check= bcrypt.compareSync(password,user[0].password)
        if(check)
        {
-        res.render('home.ejs')
+        // const allStocks= await stocks.findAll()
+        // res.render('home.ejs',{stocks:allStocks})
+        res.redirect('/home')
        }
        else{
         res.send('Invalid Login Credentials')
@@ -88,30 +88,66 @@ app.post('/login',async(req,res)=>{
     }
 })
 
-
-app.post('/add',async(req,res)=>{
-    const scrip= req.body.scrip
-    const quantity = req.body.quantity
-    const purchasePrice = req.body.purchasePrice
-    const totalInvestment= req.body.totalInvestment
-
-    //  await stocks.create({
-    //     scrip:scrip,
-    //     quantity:quantity,
-    //     purchasePrice:purchasePrice,
-    //     totalInvestment:totalInvestment
-    // })
-
-    const data = await stocks.create({
-        scrip:scrip,    
-        quantity:quantity,
-        purchasePrice: purchasePrice,
-        totalInvestment:totalInvestment
-    })
-    console.log(data)
+app.get('/home', async (req,res)=>{
+    const allstocks = await stocks.findAll()
+    res.render('home.ejs', {stocks:allstocks})
 })
 
 
+app.post('/add',async (req,res)=>{
+    const scrip= req.body.scrip
+    const quantity = req.body.quantity
+    const purchasePrice = req.body.purchasePrice
+
+     await stocks.create({
+        scrip:scrip,
+        quantity:quantity,
+        purchasePrice:purchasePrice,
+    
+    })
+    res.redirect('/home')
+})
+
+app.get('/update/:id',async(req,res)=>{
+    const id = req.params.id
+    const stock = await stocks.findAll({
+        where:{
+            id:id
+        }
+    })
+    res.render('update.ejs',{stocks:stock})
+})
+
+app.post('/update/:id', async (req,res)=>{
+    const id= req.params.id
+    const scrip= req.body.scrip
+    const quantity = req.body.quantity
+    const purchasePrice = req.body.purchasePrice
+
+    await stocks.update({
+        scrip: scrip,
+        quantity: quantity,
+        purchasePrice: purchasePrice
+    },
+    {
+        where:{
+            id:id
+        }
+    })
+
+    res.redirect('/home')
+})
+
+app.get("/delete/:id", async (req,res)=>{
+    const id = req.params.id
+
+    await stocks.destroy({
+        where:{
+            id:id
+        }
+    })
+    res.redirect('/home')
+})
 
 
 app.listen(port,()=>{

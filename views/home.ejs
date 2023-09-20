@@ -2,97 +2,7 @@
 <html>
 
 <head>
-    <style>
-        /* Styles for the navigation bar */
-        .navbar {
-            background-color: #333;
-            color: white;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        /* Style for the navigation bar text */
-        .navbar-text {
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Style for the navigation bar text */
-        .navbar-text {
-            font-size: 24px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Style for the form section */
-        .add-stock-section {
-            width: 80%;
-            margin: 20px auto;
-        }
-
-        /* Style for the form elements */
-        .add-stock-form input[type="text"],
-        .add-stock-form input[type="number"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-        }
-
-        .add-stock-form button {
-            background-color: #333;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-        }
-
-        table {
-            width: 80%;
-            border-collapse: collapse;
-            margin: 20px auto;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-
-        tr:hover {
-            background-color: #ddd;
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .update-button,
-        .delete-button {
-            padding: 5px 10px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        h1 {
-            text-align: center;
-            font-size: 24px;
-            margin: 20px 0;
-            color: #333;
-            text-transform: uppercase;
-        }
-    </style>
+    <link rel="stylesheet" href="/styles/home.css">
 </head>
 
 <body>
@@ -112,8 +22,7 @@
             <label for="purchasePrice">Purchase Price:</label>
             <input type="number" id="purchasePrice" name="purchasePrice" placeholder="Enter Purchase Price" required>
 
-            <label for="totalInvestment">Total Investment:</label>
-            <input type="number" id="totalInvestment" name="totalInvestment" placeholder="EntertotalInvestment " required>
+
 
             <button type="submit">Add</button>
             <button type="reset" id="clearForm" onclick="clear()">Clear</button>
@@ -130,20 +39,34 @@
             <th>Total Investment</th>
             <th>Action</th>
         </tr>
-        <tr>
-            <td>1</td>
-            <td>ABC</td>
-            <td>100</td>
-            <td>50</td>
-            <td>5000</td>
-            <td class="action-buttons">
-                <button class="update-button">Update</button>
-                <button class="delete-button">Delete</button>
-            </td>
-        </tr>
+
+
+        <% for (let i=0; i < stocks.length; i++) { %>
+            <tr>
+                <td>
+                    <%= i + 1 %>
+                </td>
+                <td>
+                    <%= stocks[i].scrip %>
+                </td>
+                <td>
+                    <%= stocks[i].quantity %>
+                </td>
+                <td>
+                    <%= stocks[i].purchasePrice %>
+                </td>
+                <td>
+                    <%= stocks[i].quantity * stocks[i].purchasePrice %>
+                </td>
+                <td class="action-buttons">
+                    <button> <a href="/update/<%= stocks[i].id %>">Update</a></button>
+                    <button> <a href="/delete/<%= stocks[i].id %>">Delete</a></button>
+                </td>
+            </tr>
+            <% } %>
     </table>
     <script>
-        function clear(){
+        function clear() {
             const scrip = document.getElementById("scrip")
             const quantity = document.getElementById("quantity")
             const purchasePrice = document.getElementById("purchasePrice")

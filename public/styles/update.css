@@ -1,0 +1,34 @@
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Style for the navigation bar text */
+.navbar-text {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Style for the navigation bar text */
+.navbar-text {
+    font-size: 24px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Style for the form section */
+.update-stock-section {
+    width: 80%;
+    margin: 20px auto;
+}
+
+/* Style for the form elements */
+.update-stock-form input[type="text"],
+.update-stock-form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+}
