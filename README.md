@@ -1,3 +1,8 @@
+# <h1 align="center"> Stock Portfolio Tracker </h1>
+<h3 align="center">Stock Portfolio Tracker is a fintech platform to keep track of your equity</h3>
+<br>
+
+
 ## Special Acknowledgement
 Thank you Digital Pathshala, trainer Manish Basnet where i got opportunity to joined on your 15 days
 NodeJs Free Workshop where i learn about NodeJs and able to made this project(Stock Portfolio Tracker).
