@@ -1,5 +1,5 @@
 ## Special Acknowledgement
-Thank you Digital Pathshal, trainer Manish Basnet where i got opportunity to joined on your 15 days
+Thank you Digital Pathshala, trainer Manish Basnet where i got opportunity to joined on your 15 days
 NodeJs Free Workshop where i learn about NodeJs and able to made this project(Stock Portfolio Tracker).
 
 Also special thanks to my mates @Bishal_Jimee and @Rohan_Kumar_Chaudhary :)
@@ -16,9 +16,11 @@ To run Stock Portfolio Tracker web application locally, please follow these step
 
 ## Technologies Used
 
-- ejs
+- EJS
 - CSS
 - NodeJs
+- ExpressJs
+- mySQl
 
 ## Features
 
