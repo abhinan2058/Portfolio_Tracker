@@ -46,7 +46,7 @@ app.post('/register',async (req,res)=>{
     })
 
     if(data.length >0){
-        res.send("User already Registerd!")  
+        return res.send("User already Registerd!")  
     }
     else{
     await users.create({
@@ -83,7 +83,7 @@ app.post('/login',async(req,res)=>{
         res.redirect('/home')
        }
        else{
-        res.send('Invalid Login Credentials')
+         return res.send('Invalid Login Credentials')
        }
     }
 })
