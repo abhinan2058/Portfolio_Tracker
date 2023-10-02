@@ -86,6 +86,9 @@ app.post('/login',async(req,res)=>{
          return res.send('Invalid Login Credentials')
        }
     }
+    else{
+        return res.send("User not registered!!")
+    }
 })
 
 app.get('/home', async (req,res)=>{
