@@ -29,7 +29,7 @@ To run Stock Portfolio Tracker web application locally, please follow these step
 
 ## Features
 
-- Login with Authorisation and Authentication
+- Login System with Authentication
 - Registration
 - Add Stock 
 - Update Stock
